@@ -74,6 +74,22 @@ def calcular_resultado(jogada_usuario, jogada_computador):
         else:
             print("Você perdeu!")
 
+def quantidade_rodadas():
+    print("Quantas rodadas você quer jogar?")
+    print("1. 1 rodada")
+    print("2. 5 rodadas")
+    print("3. 10 rodadas")
+    print("4. 15 rodadas")
+
+    while True:
+        opcao = input("Escolha uma opção: ")
+        if opcao == "1":
+            return int(opcao)
+        elif opcao in ["2", "3", "4"]:
+            return (int(opcao) - 1) * 5
+        else:
+            print("Opção inválida.")
+
 def digite_enter():
     input("Digite ENTER para continuar.")
     print()
@@ -85,7 +101,7 @@ print()
 regras()
 
 while True:
-    numero_rodadas = int(input("Quantas rodadas você quer jogar? "))
+    numero_rodadas = quantidade_rodadas()
     print()
     pedra_papel_tesoura(numero_rodadas)
     print()
