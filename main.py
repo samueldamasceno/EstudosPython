@@ -30,7 +30,7 @@ def pedra_papel_tesoura():
     jogada_usurio = input("Escolha sua opção: ")
     print()
 
-    jogada_computador = random.choice(["pedra", "papel", "tesoura"])
+    jogada_computador = random.choice(["Pedra", "Papel", "Tesoura"])
     match jogada_usurio:
         case "1":
             print("Você: Pedra")
@@ -68,4 +68,16 @@ print()
 input("Digite ENTER para continuar.")
 print()
 regras()
-pedra_papel_tesoura()
+while True:
+    pedra_papel_tesoura()
+    print()
+    print("Deseja jogar novamente?")
+    print("\t1. Sim \n\t2. Não")
+    opcao = input("Escolha uma opção: ")
+    print()
+    match opcao:
+        case "1":
+            continue
+        case "2":
+            print("Obrigado por jogar!")
+            break
