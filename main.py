@@ -1,11 +1,15 @@
 import random
 
+pontos_jogador = 0
+pontos_computador = 0
+
 def regras():
     print("""Já conhece as regras?
       \t1.Sim
       \t2.Não""")
     while True:
         opcao = input("Escolha uma opção: ")
+        print()
         if opcao == "1":
             print("Ótimo! Então vamos começar.")
             return
@@ -26,6 +30,9 @@ def regras():
             print("Opção inválida. Por favor, escolha 1 ou 2.")
 
 def pedra_papel_tesoura(numero_rodadas):
+    global pontos_jogador
+    global pontos_computador
+
     for i in range(1, numero_rodadas + 1):
         print(f"====== Rodada {i} ======")
         print("Pedra, papel ou tesoura?")
@@ -53,26 +60,51 @@ def pedra_papel_tesoura(numero_rodadas):
                 jogada_usuario = "Tesoura"
                 print("Você: Tesoura")
 
+        print(f"Computador: {jogada_computador}")
+        print()
+
         calcular_resultado(jogada_usuario, jogada_computador)
 
+        print()
+        print("Placar Atual")
+        print(f"Você: {pontos_jogador}")
+        print(f"Computador: {pontos_computador}")
+        print()
+        digite_enter()
+
 def calcular_resultado(jogada_usuario, jogada_computador):
+    global pontos_jogador
+    global pontos_computador
     if jogada_usuario == jogada_computador:
-        print("Empate!")
+        empate()
     elif jogada_usuario == "Pedra":
         if jogada_computador == "Tesoura":
-            print("Você ganhou!")
+            vitoria()
         else:
-            print("Você perdeu!")
+            derrota()
     elif jogada_usuario == "Papel":
         if jogada_computador == "Pedra":
-            print("Você ganhou!")
+            vitoria()
         else:
-            print("Você perdeu!")
+            derrota()
     elif jogada_usuario == "Tesoura":
         if jogada_computador == "Papel":
-            print("Você ganhou!")
+            vitoria()
         else:
-            print("Você perdeu!")
+            derrota()
+
+def vitoria():
+    global pontos_jogador
+    pontos_jogador += 1
+    print("Você ganhou!")
+
+def derrota():
+    global pontos_computador
+    pontos_computador += 1
+    print("Você perdeu!")
+
+def empate():
+    print("Empate!")
 
 def quantidade_rodadas():
     print("Quantas rodadas você quer jogar?")
