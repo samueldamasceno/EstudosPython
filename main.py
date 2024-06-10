@@ -25,34 +25,35 @@ def regras():
         else:
             print("Opção inválida. Por favor, escolha 1 ou 2.")
 
-def pedra_papel_tesoura():
-
-    while True:
+def pedra_papel_tesoura(numero_rodadas):
+    for i in range(1, numero_rodadas + 1):
+        print(f"====== Rodada {i} ======")
         print("Pedra, papel ou tesoura?")
         print("\t1. Pedra \n\t2. Papel \n\t3. Tesoura")
         print()
-        jogada_usuario = input("Escolha sua opção: ")
-        if jogada_usuario in ["1", "2", "3"]:
-            break
-        else:
-            print("Opção inválida.")
+        while True:
+            jogada_usuario = input("Escolha sua opção: ")
+            if jogada_usuario in ["1", "2", "3"]:
+                break
+            else:
+                print("Opção inválida.")
 
-    jogada_computador = random.choice(["Pedra", "Papel", "Tesoura"])
+        jogada_computador = random.choice(["Pedra", "Papel", "Tesoura"])
 
-    match jogada_usuario:
-        case "1":
-            jogada_usuario = "Pedra"
-            print("Você: Pedra")
+        match jogada_usuario:
+            case "1":
+                jogada_usuario = "Pedra"
+                print("Você: Pedra")
 
-        case "2":
-            jogada_usuario = "Papel"
-            print("Você: Papel")
+            case "2":
+                jogada_usuario = "Papel"
+                print("Você: Papel")
 
-        case "3":
-            jogada_usuario = "Tesoura"
-            print("Você: Tesoura")
+            case "3":
+                jogada_usuario = "Tesoura"
+                print("Você: Tesoura")
 
-    calcular_resultado(jogada_usuario, jogada_computador)
+        calcular_resultado(jogada_usuario, jogada_computador)
 
 def calcular_resultado(jogada_usuario, jogada_computador):
     if jogada_usuario == jogada_computador:
@@ -84,7 +85,9 @@ print()
 regras()
 
 while True:
-    pedra_papel_tesoura()
+    numero_rodadas = int(input("Quantas rodadas você quer jogar? "))
+    print()
+    pedra_papel_tesoura(numero_rodadas)
     print()
     print("Deseja jogar novamente?")
     print("\t1. Sim \n\t2. Não")
