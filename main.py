@@ -20,7 +20,7 @@ def regras():
                   Tesoura ganha de papel e perde de pedra.
                   
                   Vamos lá?""")
-            input("Digite ENTER para continuar.")
+            digite_enter()
             return
         else:
             print("Opção inválida. Por favor, escolha 1 ou 2.")
@@ -73,12 +73,16 @@ def calcular_resultado(jogada_usuario, jogada_computador):
         else:
             print("Você perdeu!")
 
+def digite_enter():
+    input("Digite ENTER para continuar.")
+    print()
 
 print("Vamos jogar Pedra, Papel ou Tesoura?")
 print()
-input("Digite ENTER para continuar.")
+digite_enter()
 print()
 regras()
+
 while True:
     pedra_papel_tesoura()
     print()
