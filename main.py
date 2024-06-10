@@ -106,6 +106,21 @@ def derrota():
 def empate():
     print("Empate!")
 
+def calcular_resultado_final():
+    global pontos_jogador
+    global pontos_computador
+
+    print()
+    if pontos_jogador > pontos_computador:
+        print("Parabéns! Você venceu o jogo!")
+    elif pontos_jogador < pontos_computador:
+        print("Poxa... Você perdeu!")
+    else:
+        print("O jogo acabou em empate!")
+    
+    pontos_computador = 0
+    pontos_jogador = 0
+
 def quantidade_rodadas():
     print("Quantas rodadas você quer jogar?")
     print("1. 1 rodada")
@@ -136,6 +151,12 @@ while True:
     numero_rodadas = quantidade_rodadas()
     print()
     pedra_papel_tesoura(numero_rodadas)
+    print()
+    print("Placar Final:")
+    print(f"Você: {pontos_jogador}")
+    print(f"Computador: {pontos_computador}")
+    print()
+    calcular_resultado_final()
     print()
     print("Deseja jogar novamente?")
     print("\t1. Sim \n\t2. Não")
